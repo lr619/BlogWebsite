@@ -1,5 +1,6 @@
 {% extends "base.html" %} 
 {% block content %}
+{% load markdown_extras %}
 <style>
     body {
         font-family: "Playfair Display", serif;
@@ -13,6 +14,7 @@
     
     .card {
         box-shadow: 0 16px 48px #E3E7EB;
+        
     }
 </style>
 
@@ -39,7 +41,8 @@
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
+                    <!--Maybe below make it split into @ a period-->
+                    <p class="card-text">{{post.content| markdown | safe |slice:":200" }}</p>
                     <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
             </div>

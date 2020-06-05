@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #local apps
     'blog',
+    #third party
+    'markdown_deux'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#this tells django which files to find static=======#
+STATICFILES_DIRS=[os.path.join(BASE_DIR, 'assets'),] #
+#===================================================#
+
+STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+
